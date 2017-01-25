@@ -4,9 +4,10 @@ RSpec.feature "Article" do
   end
 
   scenario "Can create Article" do
-    visit '/search'
-    within("#search") do
-      fill_in 'q', with: 'MyString'
+    visit '/articles/new'
+    within("#new_article") do
+      fill_in 'article_title', with: 'MyString'
+      fill_in 'article_body', with: 'body body body body'
     end
     click_button 'Go'
     expect(page).to have_content 'MyString MyString'

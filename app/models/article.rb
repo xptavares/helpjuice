@@ -17,6 +17,6 @@ class Article < ApplicationRecord
   private
 
   def generate_slug
-    self.slug = title.tr(" ", "-").downcase if title
+    self.slug = title.tr(" ", "-").downcase if title.present?
   end
 end
