@@ -1,27 +1,23 @@
-feature "Search Article" do
+RSpec.feature "Search Article" do
   background do
     FactoryGirl.create(:article)
   end
 
-  scenario "Signing in with correct credentials" do
-    visit '/sessions/new'
-    within("#session") do
-      fill_in 'Email', with: 'user@example.com'
-      fill_in 'Password', with: 'caplin'
+  scenario "Search with valid params" do
+    visit '/search'
+    within("#search") do
+      fill_in 'q', with: 'MyString'
     end
-    click_button 'Sign in'
-    expect(page).to have_content 'Success'
+    click_button 'Go'
+    expect(page).to have_content 'MyString MyString'
   end
 
-  given(:other_article) { FactoryGirl.create(:article, title: "Title 2", body: "body body body") }
-
-  scenario "Signing in as another user" do
-    visit '/sessions/new'
-    within("#session") do
-      fill_in 'Email', with: other_user.email
-      fill_in 'Password', with: other_user.password
+  scenario "Search with invalid params" do
+    visit '/search'
+    within("#search") do
+      fill_in 'q', with: 'Xunda'
     end
-    click_button 'Sign in'
-    expect(page).to have_content 'Invalid email or password'
+    click_button 'Go'
+    expect(page).to have_content 'No Results'
   end
 end
