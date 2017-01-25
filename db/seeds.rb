@@ -1,3 +1,3 @@
 Article.create!(title: "How do i cancel my subscription", body: "O que temos que ter sempre em mente é que o surgimento do comércio virtual pode nos levar a considerar a reestruturação das novas proposições.")
-Article.create!(title: "What is my account number", body: "O que temos que ter sempre em mente é que o surgimento do comércio virtual pode nos levar a considerar a reestruturação das novas proposições.")
-Article.create!(title: "How do i signup", body: "O que temos que ter sempre em mente é que o surgimento do comércio virtual pode nos levar a considerar a reestruturação das novas proposições.")
+Article.create!(title: "What is my account number", body: "A nível organizacional, o início da atividade geral de formação de atitudes cumpre um papel essencial na formulação do sistema de participação geral.")
+Article.create!(title: "How do i signup", body: "Xunda xunda xunda xunda xunda Xunda xunda xunda xunda xunda Xunda xunda xunda xunda xunda Xunda xunda xunda xunda xunda Xunda xunda xunda xunda xunda")
