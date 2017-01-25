@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170125144101) do
     t.text     "body",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "slug",       null: false
+    t.string   "slug"
     t.index ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
     t.index ["title"], name: "index_articles_on_title", unique: true, using: :btree
   end
