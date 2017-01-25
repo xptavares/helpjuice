@@ -9,6 +9,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= nav_bar fixed: :top, brand: "Helpjuice" do %>
+      <%= menu_group do %>
+          <%= menu_item "Search", root_path %>
+          <%= menu_item "Articles", articles_path %>
+      <% end %>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

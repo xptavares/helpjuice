@@ -14,7 +14,6 @@ RSpec.describe ArticlesController, type: :controller do
       article = Article.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:articles)).to include article
-      expect(assigns(:articles)).to include @user.article
     end
   end
 
@@ -57,7 +56,7 @@ RSpec.describe ArticlesController, type: :controller do
 
       it "redirects to the created article" do
         post :create, { article: valid_attributes }, valid_session
-        expect(response).to redirect_to(Article)
+        expect(response).to redirect_to(assigns(:article))
       end
     end
 
@@ -96,7 +95,7 @@ RSpec.describe ArticlesController, type: :controller do
       it "redirects to the article" do
         article = Article.create! valid_attributes
         put :update, { id: article.to_param, article: new_attributes }, valid_session
-        expect(response).to redirect_to(Article)
+        expect(response).to redirect_to(assigns(:article))
       end
     end
 

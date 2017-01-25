@@ -35,6 +35,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# bootstrap
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
 # elasticsearch
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
@@ -45,6 +50,7 @@ group :development, :test do
 
   gem 'factory_girl_rails', '~> 4.8'
 
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
 end

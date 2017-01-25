@@ -1,19 +1,21 @@
-<h1>Articles Search</h1>
+<%- model_class = Article -%>
+<div class="page-header">
+  <h1><%= t('article.title') %></h1>
+</div>
 
-<%= form_for search_path, method: :get do |f| %>
-  <p>
-    <%= f.label "Search for" %>
-    <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag "Go", name: nil %>
-  </p>
-<% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for search_path, method: :get, html: { class: 'form-horizontal' } do |f| %>
+      <div class="input-group">
+        <%= text_field_tag :q, params[:q], class: "form-control", placeholder: "Search for..." %>
+        <span class="input-group-btn">
+          <%= submit_tag "Go", name: nil, class: "btn btn-default" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <h3>
-        <%= link_to article.title, controller: "articles", action: "show", id: article._id%>
-      </h3>
-    </li>
-  <% end %>
-</ul>
+<br>
+
+<%= render "articles/articles_thumnail" %>
