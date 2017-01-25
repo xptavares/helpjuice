@@ -1,24 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Setup Enviroment
 
-Things you may want to cover:
+#### Install Postgres
 
-* Ruby version
+Install postgresql and put Trust like this [link](http://stackoverflow.com/questions/12387866/postgres-9-2-database-asks-for-password-despite-open-trust-settings)
 
-* System dependencies
+#### Install Elasticsearch
 
-* Configuration
+```bash
+brew install elasticsearch
+```
 
-* Database creation
+#### Install Project
 
-* Database initialization
+```bash
+git@github.com:xptavares/helpjuice.git
+cd helpjuice
+bundle install
+bin/rails db:create db:migrate db:seed
+```
 
-* How to run the test suite
+# Running Project
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bin/rails s
+```
 
-* Deployment instructions
+# Tes Project
 
-* ...
+```bash
+bin/rspec
+```
