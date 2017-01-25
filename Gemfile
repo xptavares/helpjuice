@@ -36,8 +36,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # bootstrap
+gem "less-rails" # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "sprockets", '3.6.3' # Fix: deprecation https://github.com/metaskills/less-rails/issues/122
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
 # elasticsearch
