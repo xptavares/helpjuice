@@ -21,6 +21,12 @@ bundle install
 bin/rails db:drop db:create db:migrate db:seed
 ```
 
+#### Obs
+If you downloaded the older versions before, you need to run this script to create slugs.
+```ruby
+Article.all.each { |a| a.touch }
+```
+
 # Running Project
 
 ```bash
