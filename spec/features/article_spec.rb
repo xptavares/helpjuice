@@ -6,19 +6,21 @@ RSpec.feature "Article" do
   scenario "Can create Article" do
     visit '/articles/new'
     within("#new_article") do
-      fill_in 'article_title', with: 'MyString'
+      fill_in 'article_title', with: 'New Title New Title'
       fill_in 'article_body', with: 'body body body body'
     end
-    click_button 'Go'
-    expect(page).to have_content 'MyString MyString'
+    click_button 'Create Article'
+    expect(page).to have_content 'Article was successfully created.'
   end
 
   scenario "Search with invalid params" do
-    visit '/search'
-    within("#search") do
-      fill_in 'q', with: 'Xunda'
+    article = Article.last
+    visit "/articles/#{article.slug}/edit"
+    within("#edit_article_#{article.id}") do
+      fill_in 'article_title', with: 'New Title New Title'
+      fill_in 'article_body', with: 'body body body body'
     end
-    click_button 'Go'
-    expect(page).to have_content 'No Results'
+    click_button 'Update Article'
+    expect(page).to have_content 'Article was successfully updated.'
   end
 end

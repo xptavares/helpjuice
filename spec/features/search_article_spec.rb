@@ -15,7 +15,7 @@ RSpec.feature "Search Article" do
   scenario "Search with invalid params" do
     visit '/search'
     within("#search") do
-      fill_in 'q', with: 'Xunda'
+      fill_in 'q', with: 'Never'
     end
     click_button 'Go'
     expect(page).to have_content 'No Results'
