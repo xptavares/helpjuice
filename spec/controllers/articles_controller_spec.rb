@@ -19,7 +19,7 @@ RSpec.describe ArticlesController, type: :controller do
   describe "GET show" do
     it "assigns the requested article as @article" do
       article = Article.create! valid_attributes
-      get :show, params: { id: article.to_param }
+      get :show, params: { slug: article.to_param }
       expect(assigns(:article)).to eq(article)
     end
   end
@@ -34,7 +34,7 @@ RSpec.describe ArticlesController, type: :controller do
   describe "GET edit" do
     it "assigns the requested article as @article" do
       article = Article.create! valid_attributes
-      get :edit, params: { id: article.to_param }
+      get :edit, params: { slug: article.to_param }
       expect(assigns(:article)).to eq(article)
     end
   end
@@ -80,20 +80,20 @@ RSpec.describe ArticlesController, type: :controller do
 
       it "updates the requested article" do
         article = Article.create! valid_attributes
-        put :update, params: { id: article.to_param, article: new_attributes }
+        put :update, params: { slug: article.to_param, article: new_attributes }
         article.reload
         expect(article.body).to eq(new_attributes[:body])
       end
 
       it "assigns the requested article as @article" do
         article = Article.create! valid_attributes
-        put :update, params: { id: article.to_param, article: new_attributes }
+        put :update, params: { slug: article.to_param, article: new_attributes }
         expect(assigns(:article)).to eq(article)
       end
 
       it "redirects to the article" do
         article = Article.create! valid_attributes
-        put :update, params: { id: article.to_param, article: new_attributes }
+        put :update, params: { slug: article.to_param, article: new_attributes }
         expect(response).to redirect_to(assigns(:article))
       end
     end
@@ -101,13 +101,13 @@ RSpec.describe ArticlesController, type: :controller do
     describe "with invalid params" do
       it "assigns the article as @article" do
         article = Article.create! valid_attributes
-        put :update, params: { id: article.to_param, article: invalid_attributes }
+        put :update, params: { slug: article.to_param, article: invalid_attributes }
         expect(assigns(:article)).to eq(article)
       end
 
       it "re-renders the 'edit' template" do
         article = Article.create! valid_attributes
-        put :update, params: { id: article.to_param, article: invalid_attributes }
+        put :update, params: { slug: article.to_param, article: invalid_attributes }
         expect(response).to render_template("edit")
       end
     end
@@ -117,13 +117,13 @@ RSpec.describe ArticlesController, type: :controller do
     it "destroys the requested article" do
       article = Article.create! valid_attributes
       expect {
-        delete :destroy, params: { id: article.to_param }
+        delete :destroy, params: { slug: article.to_param }
       }.to change(Article, :count).by(-1)
     end
 
     it "redirects to the articles list" do
       article = Article.create! valid_attributes
-      delete :destroy, params: { id: article.to_param }
+      delete :destroy, params: { slug: article.to_param }
       expect(response).to redirect_to(articles_url)
     end
   end

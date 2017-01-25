@@ -6,7 +6,11 @@ RSpec.describe Article, type: :model do
     it { should validate_presence_of(:title) }
     it { should validate_uniqueness_of(:title).case_insensitive }
     it { should validate_presence_of(:body) }
-    it { should validate_presence_of(:slug) }
+    it do
+      subject.slug = nil
+      subject.title = nil
+      should validate_presence_of(:slug)
+    end
     it { should validate_uniqueness_of(:slug).case_insensitive }
   end
 
@@ -14,6 +18,6 @@ RSpec.describe Article, type: :model do
     let(:title) { "Test abount Slug" }
     let(:slug) { "test-abount-slug" }
     subject { FactoryGirl.create(:article, title: title) }
-    it { expected(subject.slug).to eq slug }
+    it { expect(subject.slug).to eq slug }
   end
 end

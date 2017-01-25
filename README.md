@@ -18,7 +18,7 @@ brew install elasticsearch
 git@github.com:xptavares/helpjuice.git
 cd helpjuice
 bundle install
-bin/rails db:create db:migrate db:seed
+bin/rails db:drop db:create db:migrate db:seed
 ```
 
 # Running Project

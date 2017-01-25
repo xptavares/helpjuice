@@ -10,6 +10,10 @@ class Article < ApplicationRecord
 
   before_validation :generate_slug
 
+  def to_param
+    slug
+  end
+
   private
 
   def generate_slug
