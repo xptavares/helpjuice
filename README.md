@@ -35,7 +35,7 @@ bin/rails s
 
 # How to
 
-after run seed, you can enter on http://localhost:3000/how-do-i-cancel-my-subscription
+after run seed, you can enter on https://helpjuice-search.herokuapp.com/how-do-i-cancel-my-subscription
 if you enter with a slug not found they should redirect to search.
 
 # Tes Project
