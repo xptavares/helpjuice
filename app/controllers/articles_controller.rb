@@ -66,6 +66,7 @@ class ArticlesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_article
     @article = Article.find_by(slug: params[:slug])
+    redirect_to(controller: 'search', action: 'search', q: params[:slug]) unless @article
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
