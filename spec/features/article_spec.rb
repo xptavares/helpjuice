@@ -23,4 +23,16 @@ RSpec.feature "Article" do
     click_button 'Update Article'
     expect(page).to have_content 'Article was successfully updated.'
   end
+
+  scenario "Direct entry by valid slug" do
+    article = Article.last
+    visit "/#{article.slug}"
+    expect(page).to have_content 'MyString MyString'
+  end
+
+  scenario "Direct entry by valid slug" do
+    visit "/mystring"
+    expect(page).to have_content 'MyString MyString'
+    expect(page).to have_content 'Articles Search'
+  end
 end

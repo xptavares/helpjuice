@@ -33,6 +33,11 @@ Article.all.each { |a| a.touch }
 bin/rails s
 ```
 
+# How to
+
+after run seed, you can enter on http://localhost:3000/how-do-i-cancel-my-subscription
+if you enter with a slug not found they should redirect to search.
+
 # Tes Project
 
 ```bash
